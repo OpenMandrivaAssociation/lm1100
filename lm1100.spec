@@ -11,7 +11,6 @@ Patch1:		lm1100.1.0.2a-fix-compile-gcc-3.4.patch
 Patch2:		lexmark2ppm.pl.patch
 Conflicts:	printer-utils = 2007
 Conflicts:	printer-filters = 2007
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Linux Lexmark 1000/1020/1100 Printer Driver. This filter converts a ppm file

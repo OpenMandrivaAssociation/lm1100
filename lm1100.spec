@@ -1,7 +1,7 @@
 Summary:	Linux Lexmark 1000/1100 Printer Driver
 Name:		lm1100
 Version:	1.0.2a
-Release:	%mkrel 10
+Release:	%mkrel 11
 Group:		System/Printing
 License:	GPL
 URL:		http://www.linuxprinting.org/download/printing/lm1100/
@@ -9,6 +9,7 @@ Source:		http://www.linuxprinting.org/download/printing/lm1100/lm1100.%{version}
 Patch0:		lm1100-1.0.2a-gcc32.patch
 Patch1:		lm1100.1.0.2a-fix-compile-gcc-3.4.patch
 Patch2:		lexmark2ppm.pl.patch
+Patch3:		lm1100.1.0.2a-LDFLAGS.diff
 Conflicts:	printer-utils = 2007
 Conflicts:	printer-filters = 2007
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -23,6 +24,7 @@ into the  Lexmark 1000/1020/1100 internal format.
 %patch0 -p1
 %patch1 -p0
 %patch2 -p0
+%patch3 -p0
 
 %build
 %serverbuild
@@ -33,7 +35,7 @@ perl -p -i -e 's/friend Lexmark/friend class Lexmark/' *.h
 # code compiling with gcc 4.1.1.
 perl -p -i -e 's/\b[^\s:]+:://' *.h
 
-%make CC="g++ $CXXFLAGS"
+%make CC="g++ $CXXFLAGS" LDFLAGS="%{ldflags}"
 
 %install
 rm -rf %{buildroot}

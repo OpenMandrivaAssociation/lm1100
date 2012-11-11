@@ -1,0 +1,10 @@
+--- lexmark2ppm.pl.orig	Fri Aug 11 15:55:11 2000
++++ lexmark2ppm.pl	Fri Aug 11 15:55:40 2000
+@@ -1,6 +1,6 @@
+ #!/usr/bin/perl
+ 
+-require 'byteutil.pl';
++require '/usr/bin/byteutil.pl';
+ 
+ #converts lexmark prn files back to bitmaps
+ if (@ARGV < 1 || @ARGV > 2) {print "Usage: $0 <lm1100 file> [output file base]\n"; exit 1;}

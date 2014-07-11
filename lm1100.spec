@@ -1,7 +1,7 @@
 Summary:	Linux Lexmark 1000/1100 Printer Driver
 Name:		lm1100
 Version:	1.0.2a
-Release:	21
+Release:	22
 Group:		System/Printing
 License:	GPLv2
 Url:		http://www.linuxprinting.org/download/printing/lm1100/

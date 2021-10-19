@@ -1,7 +1,10 @@
+# Work around incomplete debug packages
+%global _empty_manifest_terminate_build 0
+
 Summary:	Linux Lexmark 1000/1100 Printer Driver
 Name:		lm1100
 Version:	1.0.2a
-Release:	28
+Release:	29
 Group:		System/Printing
 License:	GPLv2
 Url:		http://www.linuxprinting.org/download/printing/lm1100/
@@ -10,6 +13,7 @@ Patch0:		lm1100-1.0.2a-gcc32.patch
 Patch1:		lm1100.1.0.2a-fix-compile-gcc-3.4.patch
 Patch2:		lexmark2ppm.pl.patch
 Patch3:		lm1100.1.0.2a-LDFLAGS.diff
+BuildRequires:		gcc
 
 %description
 Linux Lexmark 1000/1020/1100 Printer Driver. This filter converts a ppm file
@@ -31,7 +35,7 @@ perl -p -i -e 's/friend Lexmark/friend class Lexmark/' *.h
 # code compiling with gcc 4.1.1.
 perl -p -i -e 's/\b[^\s:]+:://' *.h
 
-%make CC="g++ $CXXFLAGS" LDFLAGS="%{ldflags}"
+%make CC="g++ $CXXFLAGS" LDFLAGS="%{build_ldflags}"
 
 %install
 install -d %{buildroot}%{_bindir}
@@ -57,4 +61,3 @@ ln -s %{_bindir}/lm1100 %{buildroot}%{_libdir}/rhs/rhs-printfilters
 %{_bindir}/byteutil.pl
 %{_libdir}/rhs/rhs-printfilters/lm1100
 %{_libdir}/rhs/rhs-printfilters/ps-to-lm1100.fpi
-

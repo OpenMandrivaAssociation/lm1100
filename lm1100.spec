@@ -7,7 +7,7 @@ Version:	1.0.2a
 Release:	30
 Group:		System/Printing
 License:	GPLv2
-Url:		http://www.linuxprinting.org/download/printing/lm1100/
+Url:		https://www.linuxprinting.org/download/printing/lm1100/
 Source0:	http://www.linuxprinting.org/download/printing/lm1100/lm1100.%{version}.tar.gz
 Patch0:		lm1100-1.0.2a-gcc32.patch
 Patch1:		lm1100.1.0.2a-fix-compile-gcc-3.4.patch
